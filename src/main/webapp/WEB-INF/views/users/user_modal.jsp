@@ -65,8 +65,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td><input class="project-login-table-input"
-									name="userPw" type="password" placeholder="최소 8자"></td>
+								<td><input class="project-login-table-input" name="userPw"
+									type="password" placeholder="최소 8자"></td>
 							</tr>
 							<tr>
 								<td class="project-login-table-td2">
@@ -134,7 +134,8 @@
 							<tr>
 								<td><input type="text" class="project-update-table-input"
 									id="userId" name="userId" placeholder="숫자와 영어로 4-12자">
-									<button type="button" class="btn btn-primary checkBtn" id="idCheckBtn">아이디중복체크</button></td>
+									<button type="button" class="btn btn-primary checkBtn"
+										id="idCheckBtn">아이디중복체크</button></td>
 							</tr>
 
 							<tr>
@@ -242,146 +243,157 @@
 
 		</div>
 	</div>
-	
+
 	<!-- 회원정보수정 Modal -->
-  <div class="modal fade" id="modal-update" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
+	<div class="modal fade" id="modal-update" role="dialog">
+		<div class="modal-dialog">
 
-        <!-- Modal Header -->
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-            <h4 class="modal-title"><span class="modal-span">CRETIVE TEAM</span> 회원가입</h4>
-        </div>
-        <div class="modal-body">
-            <form action="#" class="modal-form" method="post">
-                    <table class="project-regist-table" >
-                        <tr>
-                            <td class="project-regist-table-td">
-                                <p><strong>회원님의 아이디는 ID입니다</strong>&nbsp;&nbsp;&nbsp;<span id="idChk"></span></p>
-                            </td>  
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="text" class="project-regist-table-input">
-                            </td>   
-                        </tr>
+			<!-- Modal content-->
+			<div class="modal-content">
 
-                        <tr>
-                            <td class="project-regist-table-td">
-                                <p><strong>이름을 수정해주세요.</strong>&nbsp;&nbsp;&nbsp;<span id="nameChk"></span></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" class="project-regist-table-input"></td>
-                        </tr>
-                        <tr>
-                            <td class="project-regist-table-td">
-                                <p><strong>전화번호를 수정해주세요.</strong>&nbsp;&nbsp;&nbsp;<span id="nameChk"></span></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" class="project-regist-table-input"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td class="project-regist-table-td">
-                                <p><strong>이메일을 수정해주세요.</strong>&nbsp;&nbsp;&nbsp;<span id="nameChk"></span></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="email" class="project-regist-table-input"></td>
-                        </tr>
-                        <tr>
-                            <td class="project-regist-table-td">
-                                <p>
-                                    <strong>주소를 입력해주세요.</strong>&nbsp;&nbsp;&nbsp;
-                                </p>
-                            </td>
-                        </tr>
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h4 class="modal-title">
+						<span class="modal-span">CRETIVE TEAM</span>회원정보
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form action="UpdateForm" class="modal-form" method="post"
+						name="UpdateForm" id="UpdateForm">
+						<table class="project-regist-table">
+							<tr>
+								<td class="project-regist-table-td">
+									<p>
+										<strong>아이디</strong>&nbsp;&nbsp;&nbsp;<span id="msgId"></span>
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="text" class="project-regist-table-input" name="userId"
+									></td>
+							</tr>
 
-                        <tr>
-                            <td><input type="text" class="project-update-table-input"
-                                id="userAddrZipNum" name="userAddrZipNum" placeholder="우편번호">
-                                <button type="button" class="btn btn-primary checkBtn"
-                                    onclick="goPopup()">주소찾기</button></td>
-                        </tr>
+							<tr>
+								<td class="project-regist-table-td">
+									<p>
+										<strong>이름</strong>&nbsp;&nbsp;&nbsp;
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="text" class="project-regist-table-input"
+									name="userName" ></td>
+							</tr>
+							<tr>
+								<td class="project-regist-table-td">
+									<p>
+										<strong>이메일</strong>&nbsp;&nbsp;&nbsp;
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="email" class="project-regist-table-input"
+									name="userEmail" ></td>
+							</tr>
+							<tr>
+								<td class="project-regist-table-td">
+									<p>
+										<strong>주소</strong>&nbsp;&nbsp;&nbsp;
+									</p>
+								</td>
+							</tr>
 
-                        <tr>
-                            <td><input type="text" class="project-regist-table-input"
-                                id="userAddrBasic" name="userAddrBasic" placeholder="기본주소"></td>
-                        </tr>
+							<tr>
+								<td><input type="text" class="project-update-table-input"
+									name="userAddrZipNum" placeholder="우편번호">
+									<button type="button" class="btn btn-primary checkBtn"
+										onclick="goPopup()">주소찾기</button></td>
+							</tr>
 
-                        <tr>
-                            <td><input type="text" class="project-regist-table-input"
-                                id="userAddrDetail" name="userAddrDetail" placeholder="상세주소"></td>
-                        </tr>
-                        <tr>
-                            <td class="project-regist-table-td2">
-                                <p><strong>회원정보를 수정하셨어요~~!</strong></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="project-regist-table-td3" >
-                                <input type="button" value="회원정보수정" class="project-regist-table-button1">
-                            </td>
-                        </tr>
+							<tr>
+								<td><input type="text" class="project-regist-table-input"
+									name="userAddrBasic" placeholder="기본주소"></td>
+							</tr>
 
-                    </table>
-            </form>
-        
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
+							<tr>
+								<td><input type="text" class="project-regist-table-input"
+									name="userAddrDetail" placeholder="상세주소"></td>
+							</tr>
+							<tr>
+								<td class="project-regist-table-td2">
+									<p>
+										<strong>회원정보를 수정을 원하시면 아래의 버튼을 눌러주세요~~!</strong>
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="project-regist-table-td3"><input
+									type="button" value="회원정보수정"
+									class="project-regist-table-button1" id="updateBtn"></td>
+							</tr>
 
-  <div class="modal fade" id="modal-delete" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
+						</table>
+					</form>
 
-        <!-- Modal Header -->
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-            <h4 class="modal-title"><span class="modal-span">CRETIVE TEAM</span> 회원가입</h4>
-        </div>
-        <div class="modal-body">
-            <form action="DeleteForm" class="modal-form" method="post" name="DeleteForm" id="DeleteForm">
-                    <table class="project-regist-table" >
-                        <tr>
-                            <td class="project-regist-table-td">
-                                <p><strong>회원님의 비밀번호를 입력해주세요</strong>&nbsp;&nbsp;&nbsp;<span id="idChk"></span></p>
-                            </td>  
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="text" class="project-update-table-input" placeholder="숫자와 영어로 4-14자" id="pwCheck">
-                                <button type="button" class="btn btn-primary checkBtn" id="pwCheckBtn">비밀번호확인</button>
-                            </td>   
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="project-regist-table-td3" >
-                                <input type="button" value="회원탈퇴" class="project-regist-table-button1">
-                            </td>
-                        </tr>
-                    </table>
-            </form>
-        
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-delete" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h4 class="modal-title">
+						<span class="modal-span">CRETIVE TEAM</span> 회원탈퇴
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form action="DeleteForm" class="modal-form" method="post"
+						name="DeleteForm" id="DeleteForm">
+						<table class="project-regist-table">
+							<tr>
+								<td class="project-regist-table-td">
+									<p>
+										<strong>${sessionScope.userId }님의 비밀번호를 입력해주세요</strong>&nbsp;&nbsp;&nbsp;<span
+											id="pwChk"></span>
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="hidden" class="project-update-table-input"
+									value="${sessionScope.userId }" id="userId" name="userId">
+									<input type="password" class="project-update-table-input"
+									id="userPwCheck" name="userPw">
+									<button type="submit" class="btn btn-primary checkBtn"
+										id="pwCheckBtn">비밀번호확인</button></td>
+							</tr>
+							<tr>
+								<td colspan="2" class="project-regist-table-td3"><input
+									type="button" value="회원탈퇴" class="project-regist-table-button1"
+									id="deleteBtn"></td>
+							</tr>
+						</table>
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
 	<script>
 
 		
@@ -540,18 +552,97 @@
 			})
 
 		})
-
-		var pwCheck = document.getElementById("pwCheck");
-		console.log(pwCheck.value);
+	
+		
 		
 		$("#pwCheckBtn").click(function() {
-			
-			if($("#userPw").val() != $("#pwCheck").val()) {
+
+			if($("#userPw").val() == '' || $("#userPw").val() == $("#userPwCheck").val()) {
 				alert("비밀번호를 확인해주세요");
 				return;
-			} else {
-				$("#DeleteForm").submit();	
 			}
+
+			$.ajax({
+				type: "POST",
+				url: "pwCheck",
+				data: JSON.stringify({"userPw":userPw}),
+				contentType: "application/json; charset=utf-8",
+				success:function(data) {
+					//console.log(data);
+					
+					if(data == 0) { 
+						alert("0");
+						
+					} else { 
+						alert("1");
+						
+					}
+					
+				},
+				error: function(status, error) {
+					
+					alert("서버에러입니다. 다시시작하세요");
+				}
+				
+			})
+
+		})
+
+		
+		$("#updateBtn").click(function() {
+		
+			if ($("#userName").val() == '') {
+				alert("이름은 필수사항 입니다");
+				return;
+			} else if ($("#userEmail").val() == '') {
+				alert("이메일은 필수사항 입니다");
+				return;
+			} else if ($("#userAddrZipNum").val() == '') {
+				alert("우편번호는 필수사항 입니다");
+				return;
+			} else if ($("#userAddrBasic").val() == '') {
+				alert("주소는 필수사항 입니다");
+				return;
+			} else {
+				$("#UpdateForm").submit();
+			}
+			
+		})
+		
+
+		
+		$("#deleteBtn").click(function() {
+			
+			var userId = $("#userId").val();
+			var userPw = $("#userPw").val(); 
+			console.log(userId, userPw);
+			
+			if(userPw == "") {
+				alert("비밀번호를 확인하세요");
+			}
+			
+			$.ajax({
+				
+				type: "POST",
+				url: "DeleteForm",
+				data: JSON.stringify({"userId":userId,"userPw":userPw}),
+				contentType: "application/json; charset=utf-8",
+				success:function(data) {
+					console.log(data);
+					if(data==1) {
+						alert("탈퇴되었습니다");
+						$("#checkPw").val("");
+						$("#modal-delete").modal("hide");
+					} else {
+						alert("비밀번호를 확인하세요");
+					}
+ 					
+				},
+				error:function(status, error) {
+					alert("회원탈퇴에 실패했습니다 관리자에게 문의해주세요");
+				}
+				
+			})
 
 		})
 		

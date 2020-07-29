@@ -15,7 +15,7 @@
                 <p data-toggle="modal" data-target="#modal-regist">회원가입</p>
 			</c:when>       
             <c:otherwise>
-            	<p data-toggle="modal" data-target="#modal-update">회원정보수정</p>
+            	<p data-toggle="modal" data-target="#modal-update">회원정보</p>
                 <p data-toggle="modal" data-target="#modal-delete">회원탈퇴</p>
             	<p><a href="${pageContext.request.contextPath }/users/userLogout">로그아웃</a></p>
             </c:otherwise>     

@@ -202,21 +202,8 @@
 
 	<section></section>
 
-
-
 	<%@ include file="include/footer.jsp"%>
 	<%@ include file="users/user_modal.jsp"%>
-
-
-	<script>
-		$("#loginmodal").click(function() {
-			$("#modal-login").modal("show");
-		});
-
-		$("#registmodal").click(function() {
-			$("#modal-regist").modal("show");
-		});
-	</script>
 
 </body>
 </html>

@@ -7,6 +7,6 @@ public interface UserInfoMapper {
 	public int idCheck(UserInfoVO vo);
 	public int join(UserInfoVO vo);
 	public int login(UserInfoVO vo);
-	public int delete(UserInfoVO vo);
+
 	
 }

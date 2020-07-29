@@ -30,10 +30,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return userinfoMapper.login(vo);
 	}
 
-	@Override
-	public int delete(UserInfoVO vo) {
-		
-		return userinfoMapper.delete(vo);
-	}
+
 
 }

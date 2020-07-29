@@ -14,7 +14,7 @@
       header h1 {text-align: center; margin: 20px; color: #555555;}
       .header-span {color : #555555}
       .logo-box {position: relative;}
-      .logo-box .login-register {position: absolute; top: -60px; right: 50px; margin: 15px;}
+      .logo-box .login-register {position: absolute; top: -60px; right: 50px; margin: 15px; cursor: pointer}
       .logo-box .login-register p {margin: 15px; color: #555555; display: inline;}
       header .navbox {display: block; margin: 0px; padding: 0px; text-align: center;}
       header .navbar-inverse {background-image: none; background-color: white; border-color: white; z-index: -5;}

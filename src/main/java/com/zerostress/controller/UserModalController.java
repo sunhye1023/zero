@@ -38,19 +38,21 @@ public class UserModalController {
 		//System.out.println(vo.toString());
 		
 		int result = userinfoService.idCheck(vo);
-		System.out.println("아이디체크"+result);
+		//System.out.println("아이디체크"+result);
 		
 		return result;
 	}
 	
+
 	@RequestMapping(value="/JoinForm",method=RequestMethod.POST)
 	public String joinUser(UserInfoVO vo, RedirectAttributes RA) {
 		
-		System.out.println(vo.toString());
+		//System.out.println(vo.toString());
+
 		int result = userinfoService.join(vo);
-		System.out.println(result);
+		//System.out.println(result);
 		if(result==1) {
-			RA.addFlashAttribute("msg", "회원가입되셨습니다");
+			RA.addFlashAttribute("msg", "회원가입되었습니다");
 		} else {
 			RA.addFlashAttribute("msg", "회원가입에 실패했습니다");
 		}
@@ -62,11 +64,12 @@ public class UserModalController {
 	public String loginUser(UserInfoVO vo, HttpSession session,
 							RedirectAttributes RA) {
 
-		System.out.println(vo.toString());
+		//System.out.println(vo.toString());
 		int result = userinfoService.login(vo);
 
 		if(result==1) {
 			session.setAttribute("userId",vo.getUserId());
+			RA.addFlashAttribute("msg", "로그인되었습니다");
 		} else {
 			RA.addFlashAttribute("msg", "로그인에 실패했습니다");
 		}
@@ -83,23 +86,6 @@ public class UserModalController {
 		return "redirect:/";
 	}
 	
-	
-	@RequestMapping(value="/DeleteForm", method=RequestMethod.POST)
-	public String deleteUser(UserInfoVO vo, HttpSession session, RedirectAttributes RA) {
-		
-		System.out.println(vo.toString());
-		
-		int result = userinfoService.delete(vo);
-		
-		if(result==1) {
-			session.invalidate();
-			RA.addFlashAttribute("msg", "회원탈퇴했습니다");
-		} else {
-			RA.addFlashAttribute("msg", "회원탈퇴를 실패했습니다");
-		}
-		
-		return "redirect:/";
-	}
-	
+
 	
 }
