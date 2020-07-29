@@ -133,7 +133,7 @@
 							</tr>
 							<tr>
 								<td><input type="text" class="project-update-table-input"
-									id="userId" name="userId" placeholder="숫자와 영어로 4-12자">
+									id="userId" name="userId" placeholder="숫자, 영어로 4-12자">
 									<button type="button" class="btn btn-primary checkBtn"
 										id="idCheckBtn">아이디중복체크</button></td>
 							</tr>
@@ -149,7 +149,7 @@
 							<tr>
 								<td><input type="password"
 									class="project-regist-table-input" id="userPw" name="userPw"
-									placeholder="영문과 특수문자를 포함한 최소 8자"></td>
+									placeholder="영문, 숫자, 특수문자를 포함한 최소 8자"></td>
 							</tr>
 							<tr>
 								<td class="project-regist-table-td">
@@ -271,7 +271,7 @@
 							</tr>
 							<tr>
 								<td><input type="text" class="project-regist-table-input" name="userId"
-									></td>
+									value="${infoVO.userId }" disabled></td>
 							</tr>
 
 							<tr>
@@ -283,7 +283,7 @@
 							</tr>
 							<tr>
 								<td><input type="text" class="project-regist-table-input"
-									name="userName" ></td>
+									name="userName" value="${infoVO.userName }"></td>
 							</tr>
 							<tr>
 								<td class="project-regist-table-td">
@@ -294,7 +294,7 @@
 							</tr>
 							<tr>
 								<td><input type="email" class="project-regist-table-input"
-									name="userEmail" ></td>
+									name="userEmail" value="${infoVO.userEmail }"></td>
 							</tr>
 							<tr>
 								<td class="project-regist-table-td">
@@ -306,24 +306,24 @@
 
 							<tr>
 								<td><input type="text" class="project-update-table-input"
-									name="userAddrZipNum" placeholder="우편번호">
+									name="userAddrZipNum" value="${infoVO.userAddrZipNum }" placeholder="우편번호">
 									<button type="button" class="btn btn-primary checkBtn"
 										onclick="goPopup()">주소찾기</button></td>
 							</tr>
 
 							<tr>
 								<td><input type="text" class="project-regist-table-input"
-									name="userAddrBasic" placeholder="기본주소"></td>
+									name="userAddrBasic" value="${infoVO.userAddrBasic }" placeholder="기본주소"></td>
 							</tr>
 
 							<tr>
 								<td><input type="text" class="project-regist-table-input"
-									name="userAddrDetail" placeholder="상세주소"></td>
+									name="userAddrDetail" value="${infoVO.userAddrDetail }" placeholder="상세주소"></td>
 							</tr>
 							<tr>
 								<td class="project-regist-table-td2">
 									<p>
-										<strong>회원정보를 수정을 원하시면 아래의 버튼을 눌러주세요~~!</strong>
+										<strong>회원정보 수정을 원하시면 아래의 버튼을 눌러주세요~~!</strong>
 									</p>
 								</td>
 							</tr>
@@ -374,7 +374,7 @@
 								<td><input type="hidden" class="project-update-table-input"
 									value="${sessionScope.userId }" id="userId" name="userId">
 									<input type="password" class="project-update-table-input"
-									id="userPwCheck" name="userPw">
+									id="userPw" name="userPw">
 									<button type="submit" class="btn btn-primary checkBtn"
 										id="pwCheckBtn">비밀번호확인</button></td>
 							</tr>
@@ -454,7 +454,7 @@
 
         var pw = document.getElementById("userPw");
         pw.onkeyup = function(){
-            var regex = /^[A-Za-z0-9+]{8,16}$/;
+            var regex = /^.*(?=^.{8,}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/
              if(regex.test(document.getElementById("userPw").value )) {
                 document.getElementById("userPw").style.borderColor = "green";
                 document.getElementById("msgPw").innerHTML = "사용가능합니다";
@@ -557,11 +557,8 @@
 		
 		$("#pwCheckBtn").click(function() {
 
-			if($("#userPw").val() == '' || $("#userPw").val() == $("#userPwCheck").val()) {
-				alert("비밀번호를 확인해주세요");
-				return;
-			}
-
+			
+			var userPw = $("#userPw").val();
 			$.ajax({
 				type: "POST",
 				url: "pwCheck",
@@ -624,7 +621,7 @@
 			$.ajax({
 				
 				type: "POST",
-				url: "DeleteForm",
+				url: "pwCheck",
 				data: JSON.stringify({"userId":userId,"userPw":userPw}),
 				contentType: "application/json; charset=utf-8",
 				success:function(data) {
@@ -632,7 +629,6 @@
 					if(data==1) {
 						alert("탈퇴되었습니다");
 						$("#checkPw").val("");
-						$("#modal-delete").modal("hide");
 					} else {
 						alert("비밀번호를 확인하세요");
 					}

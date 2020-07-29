@@ -30,6 +30,31 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return userinfoMapper.login(vo);
 	}
 
+	@Override
+	public UserInfoVO info(String userId) {
+		
+		return userinfoMapper.info(userId);
+	}
+
+	@Override
+	public int update(UserInfoVO vo) {
+		
+		return userinfoMapper.update(vo);
+	}
+
+	@Override
+	public int pwCheck(UserInfoVO vo) {
+
+		return userinfoMapper.pwCheck(vo);
+	}
+	
+	@Override
+	public int delete(String userId) {
+
+		return userinfoMapper.delete(userId);
+	}
+
+
 
 
 }

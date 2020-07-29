@@ -1,10 +1,13 @@
 package com.zerostress.controller;
 
+import javax.mail.Session;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +26,7 @@ public class UserModalController {
 	@Qualifier("userinfoService")
 	private UserInfoService userinfoService;
 	
-	
+	//user_modal화면 처리
 	@RequestMapping("/users/user_modal")
 	public String userModal() {
 		
@@ -31,6 +34,7 @@ public class UserModalController {
 		
 	}
 	
+	//회원가입-id중복확인
 	@ResponseBody
 	@RequestMapping(value="/idCheck", method=RequestMethod.POST)
 	public int userIdCheck(@RequestBody UserInfoVO vo) {
@@ -43,7 +47,7 @@ public class UserModalController {
 		return result;
 	}
 	
-
+	//회원가입
 	@RequestMapping(value="/JoinForm",method=RequestMethod.POST)
 	public String joinUser(UserInfoVO vo, RedirectAttributes RA) {
 		
@@ -60,6 +64,7 @@ public class UserModalController {
 		
 	}
 	
+	//로그인
 	@RequestMapping(value="/LoginForm", method=RequestMethod.POST)
 	public String loginUser(UserInfoVO vo, HttpSession session,
 							RedirectAttributes RA) {
@@ -78,6 +83,7 @@ public class UserModalController {
 		
 	}
 	
+	//로그아웃
 	@RequestMapping("/users/userLogout")
 	public String userLogout(HttpSession session) {
 		
@@ -85,6 +91,73 @@ public class UserModalController {
 		
 		return "redirect:/";
 	}
+	
+	
+	//회원정보
+	@RequestMapping(value="/UpdateForm", method=RequestMethod.POST)
+	public String updateUser(UserInfoVO vo, HttpSession session, Model model, RedirectAttributes RA) {
+		System.out.println(1);
+		String userId = (String)session.getAttribute("userId");
+		UserInfoVO infoVO = userinfoService.info(userId);
+		System.out.println(infoVO.toString());
+		
+		model.addAttribute("infoVO", infoVO);
+		
+		int result = userinfoService.update(infoVO);
+		
+		if(result==1) {
+			RA.addFlashAttribute("msg", "회원정보를 수정했습니다");
+		}
+		
+		return "redirect:/";
+
+	}
+	
+	
+	//회원탈퇴-pw확인
+	@ResponseBody
+	@RequestMapping(value="/pwCheck", method=RequestMethod.POST)
+	public int userPwCheck(@RequestBody UserInfoVO vo) {
+		
+		//System.out.println(vo.toString());
+		
+		int result = userinfoService.pwCheck(vo);
+		System.out.println("pw확인"+result);
+		
+		return result;
+	}
+	
+	//회원탈퇴
+	@RequestMapping(value="/DeleteForm", method=RequestMethod.POST)
+	public String deleteUser(UserInfoVO vo, HttpSession session, RedirectAttributes RA) {
+		
+		String userId = (String)session.getAttribute("userId");
+		
+		int result = userinfoService.delete(userId);
+		
+		if(result==0) {
+			session.invalidate();
+		}
+		
+		
+		return "redirect:/";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 	

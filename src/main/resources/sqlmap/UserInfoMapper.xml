@@ -20,6 +20,22 @@
 		select count(*) from userinfo where userId=#{userId} and userPw=#{userPw}
 	</select>
 
-	
+	<select id="info" resultType="UserInfoVO">
+		select * from userinfo where uesrId=#{userId}
+	</select>
 
+
+	<update id="update">
+		update userinfo set userName=#{userName},userEmail=#{userEmail},userAddrZipNum=#{userAddrZipNum},
+		userAddrBasic=#{userAddrBasic},userAddrDetail=#{userAddrDetail} where userId=#{userId}
+	</update>
+	
+	<select id="pwCheck" resultType="int">
+		select count(*) as total from userinfo where userPw=#{userPw}
+	</select>
+	
+	<delete id="delete">
+		delete from userinfo where userId=#{userId}
+	</delete>
+		
 </mapper>
